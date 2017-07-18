@@ -8,23 +8,43 @@
     @Styles.Render("~/Content/css")
    </head>
 <body>
-    <header>
-        <div id="header-top">
-            <ul id="header-top-nav">
-                <li>@Html.ActionLink("Головна сторінка", "Index", "Home", new { @class = "header-top-link" })</li>
-                <li>@Html.ActionLink("Про нас", "About", "Home", new { @class = "header-top-link" })</li>
-                <li>@Html.ActionLink("Магазини", "!----TO-DO----!", "Home", new { @class = "header-top-link" })</li>
-                <li>@Html.ActionLink("Контакти", "Contact", "Home", new { @class = "header-top-link" })</li>
-            </ul>
-            <p id="reg-auth-title" align="right">
-                <a href="@Url.Action("", "Home")" class="top-auth">Вход</a>
-                <a href="@Url.Action("", "Home")" class="top-auth">Регистрация</a>
-            </p>
-        </div>
-    </header>
-    @RenderBody()
-    <footer>
+    <div id="site-div">
+        <header>
+            <div id="nav-menu">
+                <ul>
+                    <li>@Html.ActionLink("Головна сторінка", "Index", "Home", new { @class = "nav-menu-link",
+                   title = "Перейти на головну сторінку"})</li>
+                    <li>@Html.ActionLink("Про нас", "About", "Home", new { @class = "nav-menu-link",
+                   title = "Інформація про нас"})</li>
+                    <li>@Html.ActionLink("Контакти", "Contact", "Home", new { @class = "nav-menu-link",
+                   title = "Наші контактні дані"})</li>
 
-    </footer>
+                    @if (true)
+                    {
+                        <li class="auth">@Html.ActionLink("Вхід", "Index", "Home")</li>
+                        <li class="auth">@Html.ActionLink("Реєстрація", "Index", "Home")</li>
+                    }
+                    else
+                    {
+
+                    }
+                </ul>
+            </div>
+            <div id="top-main-menu">
+                <a href="@Url.Action("Index", "Home")"><img id="image-logo" title="Головна сторінка" src="@Url.Content("~/Content/Images/logo.png")" /></a>
+                <div id="block-search">
+                    <form>
+                        <label id="search-label">Пошук товару</label>
+                        <input id="search-text-field" placeholder="Знайти..." />
+                        <input type="button" id="button-search" value="Пошук" />
+                    </form>      
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+        <footer>
+
+        </footer>
+    </div>
 </body>
 </html>

@@ -150,6 +150,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\img-thing.jpg" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\MainPageStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
