@@ -1,24 +1,82 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿#block-body {
+    width: 1035px;
+    height: auto;
+    border: 1px solid black;
+    margin: 0 auto;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+header {
+    width: 1035px;
+    height: 220px;
+    border: 1px solid black;
+    margin: 0 auto;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+footer {
+    width: 1035px;
+    height: 160px;
+    border: 1px solid black;
+    margin: 10px auto;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+#block-left {
+    width: 220px;
+    height: 900px;
+    border: 1px solid black;
+}
+
+#block-content {
+    float: right;
+    width: 800px;
+    height: 900px;
+    border: 1px solid black;
+}
+
+#header-top {
+    width: 1035px;
+    height: 35px;
+    border: 1px solid black;
+}
+
+#header-top-nav li {
+    font: 15px sans-serif;
+    float: left;
+    margin-top: 10px;
+    list-style-type: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #E3E3E3;
+}
+
+a.header-top-link {
+    font: 15px sans-serif;
+    color: #00678C;
+    text-decoration: none;
+}
+
+a.header-top-link:hover {
+    transition-duration: 0.5s;
+    color: #0e941d;
+    border-bottom: 1px dashed #0e941d;
+}
+
+#reg-auth-title {
+    margin-right: 10px;
+    float: right;
+}
+
+#reg-auth-title a.top-auth {
+    font: bold 13px sans-serif;
+    text-decoration: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    border: 2.5px solid #E9EAEA;
+    border-radius: 5px;
+}
+
+#reg-auth-title a.top-auth:hover {
+    transition-duration: 1.5s;
+    color: rgba(0, 25, 177, 0.96);
 }
