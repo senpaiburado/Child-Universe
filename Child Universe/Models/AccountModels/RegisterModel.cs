@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Child_Universe.Models.OwnAttributes;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Child_Universe.Models.AccountModels
@@ -16,13 +17,18 @@ namespace Child_Universe.Models.AccountModels
         [Required(ErrorMessage = "Обов'язкове поле")]
         [DisplayName("Електронна пошта")]
         [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Електронна пошта введена некоррктно")]
+        [EmailAddress(ErrorMessage = "Електронна пошта введена некоректно")]
         public string EmailAdress { get; set; }
+
+        [DisplayName("Номер телефону")]
+        public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Обов'язкове поле")]
         [DisplayName("Логін")]
         [MinLength(5, ErrorMessage = "Логін повинен містити не менше 5 символів.")]
         [MaxLength(14, ErrorMessage = "Логін повинен містити не більше 14 символів.")]
+        [RegularExpression(@"^[a-zA-Z0-9]+$", ErrorMessage = "Пароль повинен містити тільки букви латинського алфавіту і цифри.")]
+        [UniqueLogin("Password")]
         public string Login { get; set; }
 
         [Required(ErrorMessage = "Обов'язкове поле")]
@@ -34,7 +40,7 @@ namespace Child_Universe.Models.AccountModels
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Обов'язкове поле")]
-        [DisplayName("Підтвердження паролю")]
+        [DisplayName("Підтвердіть пароль")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Паролі не співпадають!")]
         public string ConfirmPassword { get; set; }

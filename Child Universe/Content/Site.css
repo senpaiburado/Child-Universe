@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bellefair');
 
 body {
-    background-color: #f2f2f2;
+    background-color: rgb(242, 242, 242);
     font-family: "Lato";
     font-weight: 300;
     font-size: 16px;
@@ -32,12 +32,12 @@ p {
     text-align: center;
 }
 
-a {
+header a {
     color: #f85c37;
 }
 
-a:hover, a:focus {
-    color: #7b7b7b;
+header a:hover, a:focus {
+    color: dodgerblue;
     text-decoration: none;
     outline: 0;
 }
@@ -72,18 +72,25 @@ hr {
 }
 
 .navbar-inverse .navbar-nav > .active > a:active {
-    background-color: #ffea00;
+    background-color: orange;
 }
 
 .navbar-inverse .navbar-brand {
-    color: #999;
+    color: deepskyblue;
+    font-weight: bolder;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: darkorange;
     font-weight: bolder;
     font-size: 24px;
     letter-spacing: 1px;
 }
 
 .navbar-inverse .navbar-brand > i {
-    color: dodgerblue;
+    color: lawngreen;
     font-weight: bolder;
     font-size: 24px;
     letter-spacing: 1px;
@@ -119,4 +126,23 @@ hr {
     font-size: 40px;
     font-family: "Bellefair";
     letter-spacing: 2px;
+}
+
+header .dropdown-menu {
+    background-color: #555;
+    border: 1px solid #ccc;
+}
+
+header .dropdown-menu a {
+    color: #ccc;
+    font-family: "Lato", Arial;
+}
+
+header .dropdown-menu a:hover {
+    background-color: #444;
+}
+
+footer {
+    width: 100%;
+    height: 150px;
 }

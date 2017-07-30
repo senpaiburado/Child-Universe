@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Вхід";
+}
+
+@model Child_Universe.Models.LogRegModel
+
+@Styles.Render("~/Content/MyCSS/AuthPage.css")
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-login">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="#" class="active" id="login-form-link">Вхід</a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="#" id="register-form-link">Реєстрація</a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <!form id="login-form" action="@Url.Action("Login", "Account")" method="post" role="form" style="display: block;">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form", style = "display: block;", id = "login-form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.LoginModel.Login, new { htmlAttributes = new {  id = "username", @class = "form-control", placeholder = "Логін або email" } })
+                                        @Html.ValidationMessageFor(model => model.LoginModel.Login, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.LoginModel.Password, new { htmlAttributes = new {  id = "password", @class = "form-control", placeholder = "Пароль" } })
+                                        @Html.ValidationMessageFor(model => model.LoginModel.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Ввійти">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="text-center">
+                                                    <a href="@Url.Action("Recovery", "Account")" tabindex="5" class="forgot-password">Забули пароль?</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form", style = "display: none;", id = "register-form" }))
+                                { 
+                                    <div class="form-group">
+                                        <!input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                        @Html.EditorFor(model => model.RegisterModel.Firstname, new { htmlAttributes = new { @class = "form-control", placeholder = "Ім'я" } })
+                                        @Html.ValidationMessageFor(model => model.RegisterModel.Firstname, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <!input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                        @Html.EditorFor(model => model.RegisterModel.Lastname, new { htmlAttributes = new { @class = "form-control", placeholder = "Фамілія" } })
+                                        @Html.ValidationMessageFor(model => model.RegisterModel.Lastname, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <!input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                        @Html.EditorFor(model => model.RegisterModel.Login, new { htmlAttributes = new { @class = "form-control", placeholder = "Логін" } })
+                                        @Html.ValidationMessageFor(model => model.RegisterModel.Login, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <!input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                        @Html.EditorFor(model => model.RegisterModel.EmailAdress, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                                        @Html.ValidationMessageFor(model => model.RegisterModel.EmailAdress, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <!input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                        @Html.EditorFor(model => model.RegisterModel.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Номер телефону" } })
+                                        @Html.ValidationMessageFor(model => model.RegisterModel.PhoneNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <!input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                        @Html.EditorFor(model => model.RegisterModel.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Пароль" } })
+                                        @Html.ValidationMessageFor(model => model.RegisterModel.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <!input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                        @Html.EditorFor(model => model.RegisterModel.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Підтвердіть пароль" } })
+                                        @Html.ValidationMessageFor(model => model.RegisterModel.ConfirmPassword, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Зареєструватися">
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/MyScripts/AuthFormScript.js"></script>
+}

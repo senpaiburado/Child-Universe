@@ -10,12 +10,10 @@ namespace Child_Universe.Models
     public class User
     {
         public int UserID { get; set; }
-        [Required]
         public string Firstname { get; set; }
-        [Required]
         public string Lastname { get; set; }
-        [Required]
         public string EmailAdress { get; set; }
+        public string PhoneNumber { get; set; }
         public List<Purchase> Purchases { get; set; }
         public int MoneySpent { get; set; }
         public string Login { get; set; }

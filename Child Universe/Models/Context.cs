@@ -8,9 +8,15 @@ namespace Child_Universe.Models
 {
     public class Context : DbContext
     {
-        public Context() : base("DefaultConnection") { }
+        public Context() : base("ShopContext") { }
         public DbSet<Toy> Toys { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<Context>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

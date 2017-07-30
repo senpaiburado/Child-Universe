@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
+
 
 namespace Child_Universe.Models.AccountModels
 {
     public class LoginModel
     {
-        
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        public string Login { get; set; }
+
+
+        [Required(ErrorMessage = "Обов'язкове поле")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
     }
 }
